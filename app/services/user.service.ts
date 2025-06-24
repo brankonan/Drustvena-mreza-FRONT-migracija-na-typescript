@@ -48,4 +48,23 @@ export class UserService {
         throw error;
       });
   }
+
+  public getById(id: number): Promise<User> {
+    return fetch(`${this.apiUrl}/${id}`).then((response) => {
+      if (!response.ok) throw new Error("Greska pri dohvatanju korisnika");
+      return response.json();
+    });
+  }
+
+  public update(user: User): Promise<void> {
+    return fetch(`${this.apiUrl}/${user.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }).then((response) => {
+      if (!response.ok) throw new Error("Greska " + response.status);
+    });
+  }
 }

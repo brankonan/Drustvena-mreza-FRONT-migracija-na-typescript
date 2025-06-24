@@ -26,6 +26,13 @@ function loadUsers(): void {
         if (tbody) {
           tbody.appendChild(tr);
         }
+
+        const editButton = document.createElement("button");
+        editButton.textContent = "Izmeni";
+        editButton.addEventListener("click", () => {
+          window.location.href = `./usersForm/usersForm.html?id=${user.id}`;
+        });
+        tr.appendChild(editButton);
       });
     })
     .catch((error) => {
