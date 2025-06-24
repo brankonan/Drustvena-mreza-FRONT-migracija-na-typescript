@@ -5,5 +5,9 @@
     "outDir": "dist",
     "moduleResolution": "node"
   },
-  "include": ["app"]
+  "include": ["app"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./app",
+  }
 }
