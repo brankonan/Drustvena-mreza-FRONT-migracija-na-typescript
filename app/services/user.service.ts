@@ -67,4 +67,14 @@ export class UserService {
       if (!response.ok) throw new Error("Greska " + response.status);
     });
   }
+
+  public deleteById(id: number): Promise<void> {
+    return fetch(`${this.apiUrl}/${id}`, {
+      method: "DELETE",
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error(`Greska ${response.status}: ${response.statusText}`);
+      }
+    });
+  }
 }

@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         (document.querySelector("#prezime") as HTMLInputElement).value =
           user.prezime;
         (document.querySelector("#datum") as HTMLInputElement).value =
-          user.Datum.substring(0, 10);
+          user.datum.substring(0, 10);
       })
       .catch((error) => {
         console.error("Greska pri dohvatanju korisnika:", error.message);
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       korisnickoIme,
       ime,
       prezime,
-      Datum: datum,
+      datum: datum,
     };
 
     const akcija = id
@@ -54,17 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((error) => {
         console.error("Greska pri cuvanju korisnika: ", error.message);
-      });
-
-    userService
-      .create(noviKorisnik)
-      .then(() => {
-        console.log("Uspesno sacuvan korisnik");
-
-        window.location.href = "../index.html";
-      })
-      .catch((error) => {
-        console.error("Greska prilikom kreiranja korisnika:", error.message);
       });
   });
 });
